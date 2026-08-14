@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "codex": "^0.2.3",
+    "sqlite3": "^6.0.1"
+  }
+}
