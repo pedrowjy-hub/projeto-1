@@ -113,18 +113,6 @@ h1 {
   font-size: .9rem;
 }
 
-.section-icon {
-  display: grid;
-  flex: 0 0 42px;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border-radius: 13px;
-  color: #fff;
-  background: var(--accent);
-  font-size: 1.7rem;
-}
-
 .note-form, .form-field {
   display: grid;
   gap: 9px;
@@ -244,6 +232,38 @@ input:focus, textarea:focus {
   margin-bottom: 0;
   color: #565249;
   white-space: pre-wrap;
+}
+
+.note-card form {
+  margin-top: 20px;
+}
+
+.note-card button[type="submit"] {
+  border: 1px solid rgba(151, 48, 35, .42);
+  border-radius: 9px;
+  padding: 7px 11px;
+  color: #8f3022;
+  background: rgba(255, 255, 255, .38);
+  font-size: .82rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: color 160ms, background 160ms, border-color 160ms, transform 160ms;
+}
+
+.note-card button[type="submit"]:hover {
+  border-color: #a53827;
+  color: #fff;
+  background: #b9412f;
+  transform: translateY(-1px);
+}
+
+.note-card button[type="submit"]:focus-visible {
+  outline: 3px solid rgba(239, 91, 63, .35);
+  outline-offset: 2px;
+}
+
+.note-card button[type="submit"]:active {
+  transform: translateY(0);
 }
 
 .note-pin {

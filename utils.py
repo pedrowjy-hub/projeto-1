@@ -6,6 +6,7 @@ def load_data():
         cur = con.cursor()
         cur.execute('''
             SELECT
+            id,
             title AS titulo,
             content AS detalhes
             FROM note
@@ -21,8 +22,17 @@ def load_templates(arquivo):
 def submit_note(nota):
     
     with sqlite3.connect('banco.db') as con:
-        cur=con.cursor()
+        cur = con.cursor()
         cur.execute(
             'INSERT INTO note (title, content) VALUES (?,?)',
             (nota['titulo'],nota['detalhes'])
+        )
+
+def delete_note(note_id):
+
+    with sqlite3.connect('banco.db') as con:
+        cur = con.cursor()
+        cur.execute(
+            'DELETE FROM note WHERE id = ?',
+            (note_id,)
         )
