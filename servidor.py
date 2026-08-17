@@ -30,15 +30,13 @@ def delete_form():
     views.delete(id_nota)
     return redirect('/')
 
-@app.route('/edit',methods=['GET'])
-def edit_form():
-    id_nota = request.args.get('id')
-    views.edit(id_nota)
+@app.route('/update/<int:id_nota>',methods=['GET'])
+def update_form(id_nota):
 
     return render_template_string(views.edit(id_nota))
 
-@app.route('/edit',methods=['POST'])
-def save_edit_form():
+@app.route('/update',methods=['POST'])
+def save_update_form():
 
     id_nota = request.form.get('id')
     title = request.form.get('titulo')

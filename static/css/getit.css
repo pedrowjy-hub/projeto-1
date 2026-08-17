@@ -293,11 +293,19 @@ input:focus, textarea:focus {
   white-space: pre-wrap;
 }
 
-.note-card form {
+.note-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-top: 20px;
 }
 
-.note-card button[type="submit"] {
+.note-actions form { margin: 0; }
+
+.note-card button[type="submit"], .edit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(151, 48, 35, .42);
   border-radius: 9px;
   padding: 7px 11px;
@@ -305,23 +313,25 @@ input:focus, textarea:focus {
   background: rgba(255, 255, 255, .38);
   font-size: .82rem;
   font-weight: 750;
+  line-height: normal;
+  text-decoration: none;
   cursor: pointer;
   transition: color 160ms, background 160ms, border-color 160ms, transform 160ms;
 }
 
-.note-card button[type="submit"]:hover {
+.note-card button[type="submit"]:hover, .edit-button:hover {
   border-color: #a53827;
   color: #fff;
   background: #b9412f;
   transform: translateY(-1px);
 }
 
-.note-card button[type="submit"]:focus-visible {
+.note-card button[type="submit"]:focus-visible, .edit-button:focus-visible {
   outline: 3px solid rgba(239, 91, 63, .35);
   outline-offset: 2px;
 }
 
-.note-card button[type="submit"]:active {
+.note-card button[type="submit"]:active, .edit-button:active {
   transform: translateY(0);
 }
 

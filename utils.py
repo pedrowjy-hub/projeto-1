@@ -1,5 +1,12 @@
 import sqlite3
 
+class Note:
+    def __init__(self,id,title,content):
+        self.id = id
+        self.title = title
+        self.content = content
+
+
 def load_data():
     with sqlite3.connect('banco.db') as con:
         con.row_factory = sqlite3.Row
@@ -37,18 +44,16 @@ def delete_note(note_id):
             (note_id,)
         )
 
-def acess_note(note_id):
-
+def load_note(note_id):
     with sqlite3.connect('banco.db') as con:
         con.row_factory = sqlite3.Row
-        cur = con.cursor()
+        cur=con.cursor()
         cur.execute(
             'SELECT id,title,content FROM note WHERE id = ?',
             (note_id,)
         )
-
         nota = cur.fetchone()
-        return dict(nota)
+        return Note(nota['id'],nota['title'],nota['content'])
 
 def save_note(title,content,note_id):
 

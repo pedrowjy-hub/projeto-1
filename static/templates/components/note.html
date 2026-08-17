@@ -2,12 +2,11 @@
   <span class="note-pin" aria-hidden="true"></span>
   <h3>{title}</h3>
   <p>{details}</p>
-  <form action="/delete" method="POST">
-    <input type="hidden" name="id" value="{id}">
-    <button type="submit" name='delete_button'>Deletar</button>
-  </form>
-  <form action="/edit" method="GET">
-    <input type="hidden" name='id' value='{id}'>
-    <button type="submit" name="edit_button">Editar</button>
-  </form>
+  <div class="note-actions">
+    <form action="/delete" method="POST">
+      <input type="hidden" name="id" value="{id}">
+      <button type="submit" name='delete_button'>Deletar</button>
+    </form>
+    <a class="edit-button" href="/update/{id}" name="edit_button">Editar</a>
+  </div>
 </li>
