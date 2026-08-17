@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edite uma nota no Get-it.">
+  <title>Editar nota | Get-it</title>
+  <link rel="stylesheet" href="{{{{ url_for('static', filename='css/getit.css') }}}}">
+  <script src="{{{{ url_for('static', filename='js/getit.js') }}}}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <img class="logo" src="{{{{ url_for('static', filename='img/logo-getit.png') }}}}" alt="Get-it">
+      <div>
+        <p class="eyebrow">Sua nota</p>
+        <h1>Edite sua ideia.</h1>
+        <p class="subtitle">Faça os ajustes e salve quando estiver pronto.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="edit-page-container">
+    <section class="edit-note-section" aria-labelledby="edit-note-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="edit-note-title">Editar nota</h2>
+          <p>Altere o título ou os detalhes da sua nota.</p>
+        </div>
+      </div>
+
+      <form class="edit-note-form" action="/edit" method="POST">
+        <input type="hidden" name="id" value="{id}">
+
+        <div class="form-field">
+          <label for="titulo">Título</label>
+          <input id="titulo" type="text" name="titulo" value="{titulo}" required>
+        </div>
+
+        <div class="form-field">
+          <label for="detalhes">Detalhes</label>
+          <textarea id="detalhes" name="detalhes" rows="7" required>{detalhes}</textarea>
+        </div>
+
+        <div class="edit-actions">
+          <a class="cancel-button" href="/">Cancelar</a>
+          <button class="save-button" type="submit">Salvar alterações</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

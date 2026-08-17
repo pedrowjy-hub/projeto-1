@@ -36,3 +36,25 @@ def delete_note(note_id):
             'DELETE FROM note WHERE id = ?',
             (note_id,)
         )
+
+def acess_note(note_id):
+
+    with sqlite3.connect('banco.db') as con:
+        con.row_factory = sqlite3.Row
+        cur = con.cursor()
+        cur.execute(
+            'SELECT id,title,content FROM note WHERE id = ?',
+            (note_id,)
+        )
+
+        nota = cur.fetchone()
+        return dict(nota)
+
+def save_note(title,content,note_id):
+
+    with sqlite3.connect('banco.db') as con:
+        cur = con.cursor()
+        cur.execute(
+            'UPDATE note SET title = ?, content = ? WHERE id =?',
+            (title,content,note_id)
+        )

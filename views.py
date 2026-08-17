@@ -1,4 +1,4 @@
-from utils import load_data, load_templates, submit_note, delete_note
+from utils import load_data, load_templates, submit_note, delete_note, acess_note, save_note
 
 def index():
     note_template = load_templates('components/note.html')
@@ -19,4 +19,13 @@ def submit(titulo, detalhes):
 def delete(id_nota):
 
     delete_note(id_nota)
+    return 
+
+def edit(id_nota):
+    nota = acess_note(id_nota)
+
+    return load_templates('edit.html').format(id=nota['id'],titulo=nota['title'],detalhes=nota['content'])
+
+def save(id_nota,title,content):
+    save_note(title,content,id_nota)
     return 

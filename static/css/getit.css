@@ -178,6 +178,65 @@ input:focus, textarea:focus {
 
 .submit-button:active { transform: translateY(0); }
 
+.edit-page-container {
+  width: min(720px, 100%);
+  margin: -48px auto 0;
+  padding: 0 24px 64px;
+}
+
+.edit-note-section {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.edit-note-form {
+  display: grid;
+  gap: 20px;
+}
+
+.edit-note-form textarea { min-height: 200px; }
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.cancel-button, .save-button {
+  min-height: 46px;
+  border-radius: 12px;
+  padding: 11px 18px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms, background 160ms, box-shadow 160ms;
+}
+
+.cancel-button {
+  border: 1px solid #dcd7cc;
+  color: var(--text);
+  background: #fff;
+}
+
+.save-button {
+  border: 0;
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 8px 20px rgba(239, 91, 63, .24);
+}
+
+.cancel-button:hover, .save-button:hover { transform: translateY(-2px); }
+.cancel-button:hover { background: #f4f1ea; }
+.save-button:hover { background: var(--accent-dark); }
+.cancel-button:focus-visible, .save-button:focus-visible {
+  outline: 3px solid rgba(239, 91, 63, .35);
+  outline-offset: 2px;
+}
+
 .notes-section {
   min-width: 0;
   padding-top: 0;
@@ -303,6 +362,10 @@ input:focus, textarea:focus {
   .page-container { gap: 28px; padding: 0 16px 44px; }
   .note-form-section { padding: 22px 18px; }
   .notes-grid { grid-template-columns: 1fr; }
+  .edit-page-container { padding: 0 16px 44px; }
+  .edit-note-section { padding: 24px 18px; }
+  .edit-actions { flex-direction: column-reverse; }
+  .cancel-button, .save-button { text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
