@@ -46,6 +46,14 @@ def save_update_form():
 
     return redirect('/')
 
+@app.route('/favorite',methods = ['POST'])
+def favorite_form():
+
+    id_nota = request.form.get('id')
+
+    views.favorite(id_nota)
+
+    return redirect('/')
 
 
 if __name__ == '__main__':

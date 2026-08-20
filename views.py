@@ -1,4 +1,4 @@
-from utils import load_data, load_templates, submit_note, delete_note, load_note, save_note
+from utils import load_data, load_templates, submit_note, delete_note, load_note, save_note, favorite_note
 
 def index():
     note_template = load_templates('components/note.html')
@@ -28,4 +28,9 @@ def edit(id_nota):
 
 def save(id_nota,title,content):
     save_note(title,content,id_nota)
+    return 
+
+def favorite(id_nota):
+
+    favorite_note(id_nota)
     return 

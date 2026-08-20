@@ -8,5 +8,9 @@
       <button type="submit" name='delete_button'>Deletar</button>
     </form>
     <a class="edit-button" href="/update/{id}" name="edit_button">Editar</a>
+    <form action="/favorite" method="POST">
+      <input type="hidden" name="id" value="{id}">
+      <button type = 'submit' name="favorite_button">Favoritar</button>
+    </form>
   </div>
 </li>

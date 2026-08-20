@@ -63,3 +63,12 @@ def save_note(title,content,note_id):
             'UPDATE note SET title = ?, content = ? WHERE id =?',
             (title,content,note_id)
         )
+
+def favorite_note(note_id):
+
+    with sqlite3.connect('banco.db') as con:
+        cur = con.cursor()
+        cur.execute(
+            'UPDATE note SET favorite = NOT FAVORITE WHERE id=?',
+            (note_id,)
+        )
