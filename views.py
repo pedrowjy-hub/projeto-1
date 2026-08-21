@@ -3,7 +3,14 @@ from utils import load_data, load_templates, submit_note, delete_note, load_note
 def index():
     note_template = load_templates('components/note.html')
     notes_li = [
-        note_template.format(id=dados['id'],title=dados['titulo'], details=dados['detalhes'])
+        note_template.format(
+            id=dados['id'],
+            title=dados['titulo'],
+            details=dados['detalhes'],
+            favorite_class=' is-favorite' if dados['favorite'] else '',
+            favorite_label='Desfavoritar' if dados['favorite'] else 'Favoritar',
+            favorite_state='true' if dados['favorite'] else 'false',
+        )
         for dados in load_data()
     ]
     notes = '\n'.join(notes_li)
@@ -33,4 +40,4 @@ def save(id_nota,title,content):
 def favorite(id_nota):
 
     favorite_note(id_nota)
-    return 
+    return

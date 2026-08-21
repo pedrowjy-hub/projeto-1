@@ -7,7 +7,8 @@ cur.execute('''
     CREATE TABLE note(
     id INTEGER PRIMARY KEY,
     title TEXT,
-    content TEXT)
+    content TEXT,
+    favorite BOOLEAN NOT NULL DEFAULT FALSE)
 ''')
 
 with open('notes.json','r', enconding = 'utf-8') as arquivo:

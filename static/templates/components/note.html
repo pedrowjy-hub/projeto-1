@@ -1,5 +1,6 @@
-<li class="note-card">
+<li class="card note-card{favorite_class}">
   <span class="note-pin" aria-hidden="true"></span>
+  <span class="favorite-indicator" aria-label="Nota favoritada">★ Favorita</span>
   <h3>{title}</h3>
   <p>{details}</p>
   <div class="note-actions">
@@ -10,7 +11,7 @@
     <a class="edit-button" href="/update/{id}" name="edit_button">Editar</a>
     <form action="/favorite" method="POST">
       <input type="hidden" name="id" value="{id}">
-      <button type = 'submit' name="favorite_button">Favoritar</button>
+      <button type="submit" name="favorite_button" aria-pressed="{favorite_state}">{favorite_label}</button>
     </form>
   </div>
 </li>

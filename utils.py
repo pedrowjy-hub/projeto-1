@@ -15,8 +15,10 @@ def load_data():
             SELECT
             id,
             title AS titulo,
-            content AS detalhes
+            content AS detalhes,
+            favorite
             FROM note
+            ORDER BY favorite DESC
         ''')
 
         return [dict(nota) for nota in cur.fetchall()]
